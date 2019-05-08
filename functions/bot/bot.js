@@ -1,14 +1,15 @@
 const Telegraf = require('telegraf');
-const sharp = require('sharp');
+const Lipo = require('lipo');
 const axios = require('axios');
 const request = require('request');
 
 const { BOT_TOKEN, IMGUR_CLIENT_ID } = process.env;
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
-
 const IMGUR_API_URL = 'https://api.imgur.com/3/image';
 const TG_FILE_API_URL = `https://api.telegram.org/file/bot${BOT_TOKEN}/`;
+
+const bot = new Telegraf(process.env.BOT_TOKEN);
+const lipo = new Lipo();
 
 bot.start(ctx =>
   ctx.replyWithMarkdown(`
@@ -45,7 +46,7 @@ bot.on('photo', async ctx => {
     const url = TG_FILE_API_URL + file_path;
 
     request(url, { encoding: null }, async (err, res, body) => {
-      const imageBuffer = await sharp(body)
+      const imageBuffer = await lipo(body)
         .resize(parseInt(newWidth), parseInt(newHeight))
         .png()
         .toBuffer();
