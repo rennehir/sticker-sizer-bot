@@ -1,5 +1,7 @@
 const Telegraf = require('telegraf');
+const sharp = require('sharp');
 const axios = require('axios');
+const request = require('request');
 
 const { BOT_TOKEN, IMGUR_CLIENT_ID } = process.env;
 
@@ -13,29 +15,40 @@ bot.hears('hi', ctx => ctx.reply('Hei vaan!'));
 bot.command('kukkuu', ctx => ctx.reply('No kukkuu vittu'));
 
 bot.on('photo', async ctx => {
-  const { file_path } = await bot.telegram.getFile(
-    ctx.message.photo[ctx.message.photo.length - 1].file_id
-  );
+  const imageArray = ctx.message.photo;
+  const { file_id, width, height } = imageArray[imageArray.length - 1];
+  const { file_path } = await bot.telegram.getFile(file_id);
+
+  const aspectRatio = width / height;
+  const newWidth = width >= height ? 512 : 512 / aspectRatio;
+  const newHeight = height >= width ? 512 : 512 / aspectRatio;
 
   try {
-    const {
-      data: {
-        data: { link }
-      }
-    } = await axios({
-      method: 'post',
-      url: IMGUR_API_URL,
-      headers: {
-        Authorization: `Client-ID ${IMGUR_CLIENT_ID}`
-      },
-      data: {
-        image: TG_FILE_API_URL + file_path
-      }
-    });
+    const url = TG_FILE_API_URL + file_path;
 
-    ctx.replyWithPhoto(link);
+    request(url, { encoding: null }, async (err, res, body) => {
+      const imageBuffer = await sharp(body)
+        .resize(parseInt(newWidth), parseInt(newHeight))
+        .png()
+        .toBuffer();
+
+      const base64Image = imageBuffer.toString('base64');
+
+      const { data } = await axios({
+        method: 'post',
+        url: IMGUR_API_URL,
+        headers: {
+          Authorization: `Client-ID ${IMGUR_CLIENT_ID}`
+        },
+        data: {
+          image: base64Image
+        }
+      });
+
+      ctx.replyWithDocument(data.data.link);
+    });
   } catch (error) {
-    console.log(error.response.data);
+    console.log(error);
   }
 });
 
