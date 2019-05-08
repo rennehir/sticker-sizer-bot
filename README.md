@@ -2,7 +2,7 @@
 
 # Sticker sizer bot for Telegram
 
-Telegram bot that sizes images so that they can be used as stickers. Add [StickerSizerBot](https://t.me/StickerSizerBot) on Telegram and startt using it :)
+Telegram bot that sizes images so that they can be used as stickers. Add [StickerSizerBot](https://t.me/StickerSizerBot) on Telegram and start using it :)
 
 ## Motivation
 
