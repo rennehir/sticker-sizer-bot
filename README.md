@@ -10,7 +10,7 @@ A short description of the motivation behind the creation and maintenance of the
 
 ## Screenshots
 
-![Screenshot](https://raw.githubusercontent.com/rennehir/sticker-sizer-bot/tree/master/docs/screenshot_1.jpg)
+![](docs/screenshot_1.jpg)
 
 ## Built with
 
