@@ -1,8 +1,30 @@
 {
+  "name": "sticker-sizer-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot that sizes images so that they can be used as stickers",
   "dependencies": {
     "axios": "^0.18.0",
     "lipo": "^0.0.10",
     "request": "^2.88.0",
     "telegraf": "^3.29.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rennehir/sticker-sizer-bot.git"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "netlify"
+  ],
+  "author": "rennehir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rennehir/sticker-sizer-bot/issues"
+  },
+  "homepage": "https://github.com/rennehir/sticker-sizer-bot#readme"
 }
