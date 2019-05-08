@@ -10,9 +10,27 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 const IMGUR_API_URL = 'https://api.imgur.com/3/image';
 const TG_FILE_API_URL = `https://api.telegram.org/file/bot${BOT_TOKEN}/`;
 
-bot.hears('hi', ctx => ctx.reply('Hei vaan!'));
+bot.start(ctx =>
+  ctx.replyWithMarkdown(`
+*Hi there!*
 
-bot.command('kukkuu', ctx => ctx.reply('No kukkuu vittu'));
+I am _Sticker Sizer Bot_. Send me an image and I will do my magic and send you a properly formatted file to use as a sticker. Use the /help command to learn more.
+`)
+);
+
+bot.help(ctx =>
+  ctx.replyWithMarkdown(`
+*Instructions*
+
+You can always get help with the /help command.
+
+1. Send me an image that you would like to have as a sticker.
+2. I will send you back a file that is a properly formatted image.
+3. Use the [Stickers Bot](https://t.me/Stickers) to create a new sticker.
+4. Send it the file I sent you.
+5. _Let the tarra game begin!_
+`)
+);
 
 bot.on('photo', async ctx => {
   const imageArray = ctx.message.photo;
