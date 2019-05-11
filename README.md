@@ -4,9 +4,23 @@
 
 Telegram bot that sizes images so that they can be used as stickers. Add [StickerSizerBot](https://t.me/StickerSizerBot) on Telegram and start using it :)
 
+This project was built for the [Junction May Online challenge](https://www.reddit.com/r/JunctionCommunity/comments/bld5f1/may_online_challenge_life_hack/). The task of the challenge was to hack your everyday life. And if you are a sticker lover on Telegram, you will love this.
+
 ## Motivation
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain why the project exists.
+Telegram stickers are awesome! They offer you the chance to express your feelings and reactions. They spice up the conversation nicely :)
+
+But the sticker creation can be a bit bothersome, at least on mobile. Say, you see a meme or something on Facebook, Reddit etc. and you think: "Hey! It would be awesome to have that as a sticker!" You download the image, open Telegram, start chatting with @Stickers and send your amazing sticker idea to the bot.
+
+> Sorry, the file type is invalid. Please convert your image to PNG.
+
+"Okay, no problem. Just reformat it to PNG."
+
+> Sorry, the image dimensions are invalid. Please check that the image fits into a 512x512 square (one of the sides should be 512px and the other 512px or less).
+
+"Oh sh\*t, whatever, I'll make it when I'm on the computer" And you never saw your idea turn into a sticker.
+
+[StickerSizerBot](https://t.me/StickerSizerBot) makes this step of sticker creation easy and fun. Send your image to the bot and it will do it's magic by resizing and formatting it correctly. Now you only need to come up with good ideas! :)
 
 ## Screenshots
 
