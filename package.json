@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Telegram bot that sizes images so that they can be used as stickers",
   "dependencies": {
-    "axios": "^0.18.0",
-    "lipo": "^0.0.10",
+    "axios": "^0.19.1",
+    "lipo": "^1.0.1",
     "request": "^2.88.0",
-    "telegraf": "^3.29.0"
+    "telegraf": "^3.35.0"
   },
   "devDependencies": {},
   "scripts": {
