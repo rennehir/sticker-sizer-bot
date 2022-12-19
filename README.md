@@ -1,3 +1,5 @@
+**Note:** Archived due to image manipulation library being deprecated
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5feb88db-a0e9-40a7-be4f-cc61d950b774/deploy-status)](https://app.netlify.com/sites/sticker-sizer-bot/deploys)
 
 # Sticker sizer bot for Telegram
